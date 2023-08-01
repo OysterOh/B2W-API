@@ -506,4 +506,14 @@ public class UserService {
         return list;
 
     }
+
+    public void resetMoney(){
+        List<User> all = userRepository.findAll();
+        all.forEach(item->{
+            UserDTO userDTO = new UserDTO(item);
+            userDTO.setMoney(5000000L);
+            User user = new User(userDTO);
+            userRepository.save(user);
+        });
+    }
 }

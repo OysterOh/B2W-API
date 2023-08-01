@@ -152,6 +152,11 @@ public class TradeService {
             userRepository.save(updateUser);
         }
         rankingRepository.deleteAll();
+        stockRepository.deleteAll();
+    }
+
+    public void deleteByEmail(String email) {
+        rankingRepository.deleteAllByEmail(email);
     }
 }
 
