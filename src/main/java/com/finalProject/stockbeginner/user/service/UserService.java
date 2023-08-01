@@ -489,7 +489,6 @@ public class UserService {
 
     public Page<MyInfoResponseDTO> getUserAll(Pageable pageable) {
         return userRepository.findAll(pageable).map(MyInfoResponseDTO::new);
-
     }
 
     public List<CareerUserResponseDTO> getCareerUser() {

@@ -1,13 +1,12 @@
 package com.finalProject.stockbeginner.user.repository;
 
-<<<<<<< HEAD
 import com.finalProject.stockbeginner.user.dto.response.CntByAgesDTO;
 import com.finalProject.stockbeginner.user.dto.response.CntProfitByAgesDTO;
 import com.finalProject.stockbeginner.user.dto.response.MbtiUserResponseDTO;
-=======
+
 import com.finalProject.stockbeginner.user.dto.response.*;
 import com.finalProject.stockbeginner.user.entity.FavoriteStock;
->>>>>>> feat/jh
+
 import com.finalProject.stockbeginner.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -29,7 +28,6 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     List<User> findAllByOrderByMoneyDesc();
 
-
     boolean existsByKakaoId(long kakaoId);
 
     User findByPhoneNumber(String phoneNumber);
@@ -40,7 +38,8 @@ public interface UserRepository extends JpaRepository<User, String> {
     @Query("SELECT new com.finalProject.stockbeginner.user.dto.response.MbtiUserResponseDTO(COUNT(*), u.mbti) FROM User u GROUP BY u.mbti")
     List<MbtiUserResponseDTO> getMbtiUser();
 
-<<<<<<< HEAD
+
+
 //    @Query("SELECT " +
 //            "new com.finalProject.stockbeginner.user.dto.response.AgesCountDTO(t.career, count) " +
 //            "FROM " +
@@ -75,7 +74,7 @@ public interface UserRepository extends JpaRepository<User, String> {
             "FROM ranking r LEFT JOIN stock_user u  ON u.user_email=r.email " +
             "GROUP BY ages")
     List<CntProfitByAgesDTO> getCntProfitByAges();
-=======
+
     //연령 별 유저 수 (실패)
 //    @Query("SELECT new com.finalProject.stockbeginner.user.dto.response.AgeUserResponseDTO(CASE " +
 //            "WHEN age BETWEEN 1 AND 19 THEN '미성년자' " +
@@ -109,8 +108,6 @@ public interface UserRepository extends JpaRepository<User, String> {
             "ON u.email = r.email " +
             "GROUP BY u.career")
     List<CareerAvgResponseDTO> getCareerProfit();
-
->>>>>>> feat/jh
 
 }
 
